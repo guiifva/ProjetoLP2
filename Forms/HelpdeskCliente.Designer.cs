@@ -1,6 +1,6 @@
-﻿namespace ProjetoLP2.Views
+﻿namespace ProjetoLP2.Forms
 {
-    partial class TelaFunc
+    partial class HelpdeskCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "TelaFunc";
+            this.Text = "HelpdeskCliente";
         }
 
         #endregion

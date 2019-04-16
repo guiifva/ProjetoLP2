@@ -45,7 +45,7 @@ namespace ProjetoLP2
                 if (listaUsuario.Count > 0)
                 {
                     MessageBox.Show("Parabens logado!" + login + senha);
-                    if (listaUsuario[0].permissao)
+                    if (listaUsuario[0].funcionario)
                     {
                         //instancia da tela dos funcionarios
                         MessageBox.Show("tela dos funcionarios");

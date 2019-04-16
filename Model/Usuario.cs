@@ -12,6 +12,6 @@ namespace ProjetoLP2.Model
         public string login { get; set; }
         public string senha { get; set; }
         public int id { get; set; }
-        public bool permissao { get; set; } // usuario normal = false, funcionario = true
+        public bool funcionario { get; set; } // usuario normal = false, funcionario = true
     }
 }

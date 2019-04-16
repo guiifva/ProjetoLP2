@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ProjetoLP2.Views
 {
-    public partial class TelaFunc : Form
+    public partial class InicialFuncionario : Form
     {
-        public TelaFunc()
+        public InicialFuncionario()
         {
             InitializeComponent();
+        }
+
+        private void Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
