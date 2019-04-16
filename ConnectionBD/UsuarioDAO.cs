@@ -17,14 +17,16 @@ namespace ProjetoLP2.DAL
             try
             {
                 AcessoDadosMySQL.LimparParametros();
-                object objRetorno = null; if (usuario != null)
+                object objRetorno = null;
+                if (usuario != null)
                 {
 
                     AcessoDadosMySQL.AdicionarParametros("@vchNome", usuario.nome);
                     AcessoDadosMySQL.AdicionarParametros("@vchLogin", usuario.login);
                     AcessoDadosMySQL.AdicionarParametros("@vchSenha", usuario.senha);
+                    AcessoDadosMySQL.AdicionarParametros("@bolPermissao", usuario.permissao);
 
-                    string strSQL = "insert into usuarios (nome, login, senha) values (@vchNome, @vchLogin, @vchSenha);SELECT LAST_INSERT_ID();";
+                    string strSQL = "insert into usuarios (nome, login, senha, permissao) values (@vchNome, @vchLogin, @vchSenha, @bolPermissao);SELECT LAST_INSERT_ID();";
                     objRetorno = AcessoDadosMySQL.ExecutarManipulacao(CommandType.Text, strSQL);
                 }
                 int intResultado = 0;
@@ -64,6 +66,8 @@ namespace ProjetoLP2.DAL
                     objNovaUsuario.id = objLinha["id"] != DBNull.Value ? Convert.ToInt32(objLinha["id"]) : 0;
                     objNovaUsuario.nome = objLinha["nome"] != DBNull.Value ? Convert.ToString(objLinha["nome"]) : "";
                     objNovaUsuario.login = objLinha["login"] != DBNull.Value ? Convert.ToString(objLinha["login"]) : "";
+                    objNovaUsuario.permissao = objLinha["permissao"] != DBNull.Value ? Convert.ToBoolean(objLinha["permissao"]) : false;
+
                     lista.Add(objNovaUsuario);
                 }
                 return lista;
@@ -86,6 +90,7 @@ namespace ProjetoLP2.DAL
                     AcessoDadosMySQL.AdicionarParametros("@vchNome", usuario.nome);
                     AcessoDadosMySQL.AdicionarParametros("@vchLogin", usuario.login);
                     AcessoDadosMySQL.AdicionarParametros("@vchSenha", usuario.senha);
+
                     string strSQL = "update usuarios set nome = @vchNome, login = @vchLogin, senha = @vchSenha where Id = @intId;select @intId;";
                     objRetorno = AcessoDadosMySQL.ExecutarManipulacao(CommandType.Text, strSQL);
                 }
@@ -132,21 +137,24 @@ namespace ProjetoLP2.DAL
             }
         }
 
-        public bool verificaLogin(Usuario usuario)
+        public List<Usuario> verificaLogin(Usuario usuario)
         {
             List<Usuario> lista = new List<Usuario>();
             try
             {
                 AcessoDadosMySQL.LimparParametros();
                 DataTable objDataTable = null;
+
                 //Se quiser personalizar a busca 
                 AcessoDadosMySQL.AdicionarParametros("@vchLogin", usuario.login);
                 AcessoDadosMySQL.AdicionarParametros("@vchSenha", usuario.senha);
-                string strSQL = "select Id, nome, login from usuarios WHERE login = @vchLogin AND senha = @vchSenha";
+
+                string strSQL = "select id, nome, login, permissao from usuarios WHERE login = @vchLogin AND senha = @vchSenha";
+
                 objDataTable = AcessoDadosMySQL.ExecutaConsultar(System.Data.CommandType.Text, strSQL);
                 if (objDataTable.Rows.Count == 0)
                 {
-                    return false;
+                    return lista;
                 }
                 foreach (DataRow objLinha in objDataTable.Rows)
                 {
@@ -154,14 +162,15 @@ namespace ProjetoLP2.DAL
                     objNovaUsuario.id = objLinha["id"] != DBNull.Value ? Convert.ToInt32(objLinha["id"]) : 0;
                     objNovaUsuario.nome = objLinha["nome"] != DBNull.Value ? Convert.ToString(objLinha["nome"]) : "";
                     objNovaUsuario.login = objLinha["login"] != DBNull.Value ? Convert.ToString(objLinha["login"]) : "";
+                    objNovaUsuario.permissao = objLinha["permissao"] != DBNull.Value ? Convert.ToBoolean(objLinha["permissao"]) : false;
                     lista.Add(objNovaUsuario);
                 }
-                return true;
+                return lista;
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-                return false;
+                return lista;
             }
         }
     }

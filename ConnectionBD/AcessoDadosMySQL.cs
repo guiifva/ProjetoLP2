@@ -27,10 +27,12 @@ namespace ProjetoLP2.DAL
         }
 
         private static MySqlParameterCollection objParametros = new MySqlCommand().Parameters;
+
         public static void LimparParametros()
         {
             objParametros.Clear();
         }
+        
         public static void AdicionarParametros(string strNomeParametro, object objValor)
         {
             objParametros.Add(new MySqlParameter(strNomeParametro, objValor));
