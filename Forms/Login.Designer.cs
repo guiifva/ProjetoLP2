@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnEntrar = new System.Windows.Forms.Button();
+            this.btnCadastrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txbLogin = new System.Windows.Forms.TextBox();
             this.txbSenha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnCadastrar = new System.Windows.Forms.Button();
+            this.btn_entrar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnEntrar
+            // btnCadastrar
             // 
-            this.btnEntrar.Location = new System.Drawing.Point(87, 218);
-            this.btnEntrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnEntrar.Name = "btnEntrar";
-            this.btnEntrar.Size = new System.Drawing.Size(84, 31);
-            this.btnEntrar.TabIndex = 0;
-            this.btnEntrar.Text = "Entrar";
-            this.btnEntrar.UseVisualStyleBackColor = true;
-            this.btnEntrar.Click += new System.EventHandler(this.BtnEntrar_Click);
+            this.btnCadastrar.Location = new System.Drawing.Point(189, 217);
+            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCadastrar.Name = "btnCadastrar";
+            this.btnCadastrar.Size = new System.Drawing.Size(84, 31);
+            this.btnCadastrar.TabIndex = 0;
+            this.btnCadastrar.Text = "Cadastrar";
+            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.Click += new System.EventHandler(this.BtnEntrar_Click);
             // 
             // label1
             // 
@@ -62,7 +62,7 @@
             this.txbLogin.Location = new System.Drawing.Point(85, 127);
             this.txbLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbLogin.Name = "txbLogin";
-            this.txbLogin.Size = new System.Drawing.Size(173, 22);
+            this.txbLogin.Size = new System.Drawing.Size(188, 22);
             this.txbLogin.TabIndex = 2;
             // 
             // txbSenha
@@ -71,7 +71,7 @@
             this.txbSenha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txbSenha.Name = "txbSenha";
             this.txbSenha.PasswordChar = '*';
-            this.txbSenha.Size = new System.Drawing.Size(173, 22);
+            this.txbSenha.Size = new System.Drawing.Size(188, 22);
             this.txbSenha.TabIndex = 4;
             // 
             // label2
@@ -83,16 +83,16 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Senha";
             // 
-            // btnCadastrar
+            // btn_entrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(176, 218);
-            this.btnCadastrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(84, 31);
-            this.btnCadastrar.TabIndex = 5;
-            this.btnCadastrar.Text = "Cadastrar";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
-            this.btnCadastrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
+            this.btn_entrar.Location = new System.Drawing.Point(85, 217);
+            this.btn_entrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_entrar.Name = "btn_entrar";
+            this.btn_entrar.Size = new System.Drawing.Size(84, 31);
+            this.btn_entrar.TabIndex = 5;
+            this.btn_entrar.Text = "Entrar";
+            this.btn_entrar.UseVisualStyleBackColor = true;
+            this.btn_entrar.Click += new System.EventHandler(this.BtnCadastrar_Click);
             // 
             // label3
             // 
@@ -110,12 +110,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(351, 338);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCadastrar);
+            this.Controls.Add(this.btn_entrar);
             this.Controls.Add(this.txbSenha);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txbLogin);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnEntrar);
+            this.Controls.Add(this.btnCadastrar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
@@ -131,12 +131,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbLogin;
         private System.Windows.Forms.TextBox txbSenha;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.Button btn_entrar;
         private System.Windows.Forms.Label label3;
     }
 }

@@ -14,7 +14,7 @@ namespace ProjetoLP2.DAL
         private static MySqlConnection Conexao;
         private static MySqlConnection CriarConexao()
         {
-            Conexao = new MySqlConnection(@"Server=localhost;Database=helpdesk; uid=root; password=;");
+            Conexao = new MySqlConnection(@"Server=localhost;Database=helpdesk; uid=root; password=root;");
             Conexao.Open(); return Conexao;
         }
         public static void FecharConexao()
