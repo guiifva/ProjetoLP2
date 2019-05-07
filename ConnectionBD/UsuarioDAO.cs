@@ -40,8 +40,9 @@ namespace ProjetoLP2.DAL
                 }
                 return false;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show("Erro: {0}", ex.ToString());
                 return false;
             }
 

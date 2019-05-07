@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using ProjetoLP2.DAL;
+using ProjetoLP2.Forms;
 using ProjetoLP2.Model;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,9 @@ using System.Windows.Forms;
 
 namespace ProjetoLP2
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
@@ -66,6 +67,15 @@ namespace ProjetoLP2
             {
                 MessageBox.Show("Informações invalidas!\nVerifique o numero de caracteres.");
             }
+        }
+
+        private void BtnCadastrar_Click(object sender, EventArgs e)
+        {
+            CadastroCliente cadastro = new CadastroCliente();
+
+            
+            cadastro.Show();
+            this.Hide();
         }
     }
 }
