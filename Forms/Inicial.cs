@@ -13,20 +13,57 @@ namespace ProjetoLP2.Forms
 {
     public partial class Inicial : Form
     {
+
+        Usuario usuarioLogado = new Usuario();
+
         public Inicial()
         {
             InitializeComponent();
         }
 
-        public Inicial(Usuario usuarioLogado)
+        public Inicial(Usuario usuario)
         {
             InitializeComponent();
+            usuarioLogado = usuario;
         }
 
 
         private void Inicial_Load(object sender, EventArgs e)
         {
+            if (!usuarioLogado.funcionario)
+            {
+                cadastroFuncionarioToolStripMenuItem.Visible = false;
+                documentarTestesToolStripMenuItem.Visible = false;
+            }
+
+        }
+
+        private void HelpdeskToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (usuarioLogado.funcionario)
+            {
+                HelpdeskFuncionario telaHelpdeskFuncionario = new HelpdeskFuncionario();
+                telaHelpdeskFuncionario.MdiParent = this;
+                telaHelpdeskFuncionario.Show();
+
+            }
+            else
+            {
+                HelpdeskCliente telaHelpdeskCliente = new HelpdeskCliente();
+                telaHelpdeskCliente.MdiParent = this;
+                telaHelpdeskCliente.Show();
+            }
             
+
+
+        }
+
+        private void CadastroFuncionarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadastroFuncionario telaCadastroFuncionario = new CadastroFuncionario();
+            telaCadastroFuncionario.MdiParent = this;
+            telaCadastroFuncionario.Show();
         }
     }
 }

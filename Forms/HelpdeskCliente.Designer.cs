@@ -1,6 +1,6 @@
 ﻿namespace ProjetoLP2.Forms
 {
-    partial class InicialCliente
+    partial class HelpdeskCliente
     {
         /// <summary>
         /// Required designer variable.

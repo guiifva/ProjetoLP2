@@ -57,17 +57,29 @@
     <Compile Include="Forms\CadastroCliente.Designer.cs">
       <DependentUpon>CadastroCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CadastroFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CadastroFuncionario.Designer.cs">
+      <DependentUpon>CadastroFuncionario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\HelpdeskFuncionario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\HelpdeskFuncionario.Designer.cs">
+      <DependentUpon>HelpdeskFuncionario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Inicial.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Inicial.Designer.cs">
       <DependentUpon>Inicial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\InicialCliente.cs">
+    <Compile Include="Forms\HelpdeskCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\InicialCliente.Designer.cs">
-      <DependentUpon>InicialCliente.cs</DependentUpon>
+    <Compile Include="Forms\HelpdeskCliente.Designer.cs">
+      <DependentUpon>HelpdeskCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Ticket.cs" />
     <Compile Include="Forms\Login.cs">
@@ -79,20 +91,17 @@
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\InicialFuncionario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\InicialFuncionario.Designer.cs">
-      <DependentUpon>InicialFuncionario.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\CadastroCliente.resx">
       <DependentUpon>CadastroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CadastroFuncionario.resx">
+      <DependentUpon>CadastroFuncionario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inicial.resx">
       <DependentUpon>Inicial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\InicialCliente.resx">
-      <DependentUpon>InicialCliente.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\HelpdeskCliente.resx">
+      <DependentUpon>HelpdeskCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -106,9 +115,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\InicialFuncionario.resx">
-      <DependentUpon>InicialFuncionario.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoLP2.Model
 {
-    class Usuario
+    public class Usuario
     {
         public string nome { get; set; }
         public string login { get; set; }

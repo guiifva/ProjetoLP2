@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProjetoLP2.Forms
 {
-    public partial class InicialCliente : Form
+    public partial class HelpdeskCliente : Form
     {
-        public InicialCliente()
+        public HelpdeskCliente()
         {
             InitializeComponent();
         }

@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjetoLP2.Views
+namespace ProjetoLP2.Forms
 {
-    public partial class InicialFuncionario : Form
+    public partial class HelpdeskFuncionario : Form
     {
-        public InicialFuncionario()
+        public HelpdeskFuncionario()
         {
             InitializeComponent();
-        }
-
-        private void Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

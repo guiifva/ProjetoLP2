@@ -43,19 +43,12 @@ namespace ProjetoLP2
 
                 listaUsuario = dao.verificaLogin(usuario);
                 
-                if (listaUsuario.Count > 0)
+                if (listaUsuario.Count == 1)
                 {
-                    MessageBox.Show("Parabens logado!" + login + senha);
-                    if (listaUsuario[0].funcionario)
-                    {
-                        //instancia da tela dos funcionarios
-                        MessageBox.Show("tela dos funcionarios");
-                    }
-                    else
-                    {
-                        //instancia da tela do cliente
-                        MessageBox.Show("tela do CLiente");
-                    }
+                    //Close();
+                    Inicial telaInicial = new Inicial(listaUsuario[0]);
+                    telaInicial.Show();
+                    this.Visible = false;
 
                 }
                 else

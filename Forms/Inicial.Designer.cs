@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.helpdeskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentarTestesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,12 +54,14 @@
             this.helpdeskToolStripMenuItem.Name = "helpdeskToolStripMenuItem";
             this.helpdeskToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.helpdeskToolStripMenuItem.Text = "Helpdesk";
+            this.helpdeskToolStripMenuItem.Click += new System.EventHandler(this.HelpdeskToolStripMenuItem_Click);
             // 
             // cadastroFuncionarioToolStripMenuItem
             // 
             this.cadastroFuncionarioToolStripMenuItem.Name = "cadastroFuncionarioToolStripMenuItem";
             this.cadastroFuncionarioToolStripMenuItem.Size = new System.Drawing.Size(132, 20);
             this.cadastroFuncionarioToolStripMenuItem.Text = "Cadastro Funcionario";
+            this.cadastroFuncionarioToolStripMenuItem.Click += new System.EventHandler(this.CadastroFuncionarioToolStripMenuItem_Click);
             // 
             // documentarTestesToolStripMenuItem
             // 
@@ -65,12 +69,18 @@
             this.documentarTestesToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
             this.documentarTestesToolStripMenuItem.Text = "Documentar Testes";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // Inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1139, 598);
+            this.ClientSize = new System.Drawing.Size(1139, 549);
             this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Inicial";
             this.Text = "Inicial";
@@ -88,5 +98,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpdeskToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroFuncionarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documentarTestesToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
