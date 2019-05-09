@@ -65,5 +65,13 @@ namespace ProjetoLP2.Forms
             telaCadastroFuncionario.MdiParent = this;
             telaCadastroFuncionario.Show();
         }
+
+        private void DocumentarTestesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Testes telaDeTestes = new Testes();
+            telaDeTestes.MdiParent = this;
+            telaDeTestes.Show();
+
+        }
     }
 }

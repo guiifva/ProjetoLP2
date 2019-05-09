@@ -68,6 +68,7 @@
             this.documentarTestesToolStripMenuItem.Name = "documentarTestesToolStripMenuItem";
             this.documentarTestesToolStripMenuItem.Size = new System.Drawing.Size(120, 20);
             this.documentarTestesToolStripMenuItem.Text = "Documentar Testes";
+            this.documentarTestesToolStripMenuItem.Click += new System.EventHandler(this.DocumentarTestesToolStripMenuItem_Click);
             // 
             // notifyIcon1
             // 
