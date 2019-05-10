@@ -13,10 +13,9 @@ namespace Projeto.Model
         public DateTime data { get; set; }
         public String software { get; set; }
         public String categoria { get; set; }
-        public String prazo { get; set; }
         public String descricao { get; set; }
         public String responsavel { get; set; }
-        public String tela { get; set; }
+        public String situacao { get; set; }
         public String erro { get; set; }
 
     }

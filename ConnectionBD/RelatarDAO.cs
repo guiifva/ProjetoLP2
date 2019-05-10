@@ -26,13 +26,12 @@ namespace Projeto.ConnectionBD
                     AcessoDadosMySQL.AdicionarParametros("@vchdata", relatar.data);
                     AcessoDadosMySQL.AdicionarParametros("@vchsoftware", relatar.software);
                     AcessoDadosMySQL.AdicionarParametros("@vchcategoria", relatar.categoria);
-                    AcessoDadosMySQL.AdicionarParametros("@vchprazo", relatar.prazo);
                     AcessoDadosMySQL.AdicionarParametros("@vcherro", relatar.erro);
                     AcessoDadosMySQL.AdicionarParametros("@vchdescricao", relatar.descricao);
                     AcessoDadosMySQL.AdicionarParametros("@vchresponsavel", relatar.responsavel);
-                    AcessoDadosMySQL.AdicionarParametros("@vchtela", relatar.tela);
+                    AcessoDadosMySQL.AdicionarParametros("@vchSituacao", relatar.situacao);
 
-                    string strSQL = "INSERT INTO reportar_erros( usuario, data_criacao,  software, categoria, prazo, erro, descricao, responsavel, tela) VALUES (@vchusuario, @vchdata, @vchsoftware, @vchcategoria, @vchprazo, @vcherro, @vchdescricao, @vchresponsavel, @vchtela)";
+                    string strSQL = "INSERT INTO ticket( usuario, data_criacao,  software, categoria, prazo, erro, descricao, responsavel, tela) VALUES (@vchusuario, @vchdata, @vchsoftware, @vchcategoria, @vchprazo, @vcherro, @vchdescricao, @vchresponsavel, @vchtela)";
                     //"INSERT INTO reportar_erros( usuario, software, erro) VALUES ('"+usuario+"', '"+software+"' , '"+erro+"');";
                     //string strSQL = "insert into usuarios (nome, login, senha, funcionario) values (@vchNome, @vchLogin, @vchSenha, @bolfuncionario);SELECT LAST_INSERT_ID();";
                     objRetorno = AcessoDadosMySQL.ExecutarManipulacao(CommandType.Text, strSQL);
@@ -75,8 +74,13 @@ namespace Projeto.ConnectionBD
                     RelatarClass objNovoTicket = new RelatarClass();
                     objNovoTicket.protocolo = objLinha["protocolo"] != DBNull.Value ? Convert.ToInt32(objLinha["protocolo"]) : 0;
                     objNovoTicket.usuario = objLinha["nome"] != DBNull.Value ? Convert.ToString(objLinha["nome"]) : "";
-                    objNovoTicket.data = objLinha["data"] != DBNull.Value ? Convert.ToDateTime(objLinha["data"]) : DateTime.Now.GetDateTimeFormats() ;
-                    objNovoTicket.software = objLinha["funcionario"] != DBNull.Value ? Convert.ToBoolean(objLinha["funcionario"]) : false;
+                    objNovoTicket.data = objLinha["data"] != DBNull.Value ? Convert.ToDateTime(objLinha["data"]) : DateTime.Now;
+                    objNovoTicket.software = objLinha["software"] != DBNull.Value ? Convert.ToString(objLinha["software"]) : "";
+                    objNovoTicket.categoria = objLinha["categoria"] != DBNull.Value ? Convert.ToString(objLinha["categoria"]) : "";
+                    objNovoTicket.descricao = objLinha["descricao"] != DBNull.Value ? Convert.ToString(objLinha["descricao"]) : "";
+                    objNovoTicket.situacao = objLinha["situacao"] != DBNull.Value ? Convert.ToString(objLinha["situacao"]) : "";
+                    objNovoTicket.erro = objLinha["erro"] != DBNull.Value ? Convert.ToString(objLinha["erro"]) : "";
+
 
                     lista.Add(objNovoTicket);
                 }
@@ -88,20 +92,25 @@ namespace Projeto.ConnectionBD
             }
         }
 
-        /*public bool edit(RelatarClass usuario)
+        public bool edit(RelatarClass relatar)
         {
             try
             {
                 AcessoDadosMySQL.LimparParametros();
                 object objRetorno = null;
-                if (usuario != null)
+                if (relatar != null)
                 {
-                    AcessoDadosMySQL.AdicionarParametros("@intId", usuario.id);
-                    AcessoDadosMySQL.AdicionarParametros("@vchNome", usuario.nome);
-                    AcessoDadosMySQL.AdicionarParametros("@vchLogin", usuario.login);
-                    AcessoDadosMySQL.AdicionarParametros("@vchSenha", usuario.senha);
+                    AcessoDadosMySQL.AdicionarParametros("@vchProtocolo", relatar.protocolo);
+                    AcessoDadosMySQL.AdicionarParametros("@vchusuario", relatar.usuario);
+                    AcessoDadosMySQL.AdicionarParametros("@vchdata", relatar.data);
+                    AcessoDadosMySQL.AdicionarParametros("@vchsoftware", relatar.software);
+                    AcessoDadosMySQL.AdicionarParametros("@vchcategoria", relatar.categoria);
+                    AcessoDadosMySQL.AdicionarParametros("@vcherro", relatar.erro);
+                    AcessoDadosMySQL.AdicionarParametros("@vchdescricao", relatar.descricao);
+                    AcessoDadosMySQL.AdicionarParametros("@vchresponsavel", relatar.responsavel);
+                    AcessoDadosMySQL.AdicionarParametros("@vchSituacao", relatar.situacao);
 
-                    string strSQL = "update usuarios set nome = @vchNome, login = @vchLogin, senha = @vchSenha where Id = @intId;select @intId;";
+                    string strSQL = "update ticket set situacao = @vchSituacao where protocolo = @intProtocolo;select @intProtocolo";
                     objRetorno = AcessoDadosMySQL.ExecutarManipulacao(CommandType.Text, strSQL);
                 }
                 int intResultado = 0;
@@ -119,16 +128,16 @@ namespace Projeto.ConnectionBD
                 return false;
             }
         }
-        *//*
-        public bool delete(RelatarClass usuario)
+        
+        public bool delete(RelatarClass ticket)
         {
             try
             {
                 AcessoDadosMySQL.LimparParametros();
-                object objRetorno = null; if (usuario != null)
+                object objRetorno = null; if (ticket != null)
                 {
-                    AcessoDadosMySQL.AdicionarParametros("@intId", usuario.id);
-                    string strSQL = "delete from usuarios where id = @intId;select @intId;";
+                    AcessoDadosMySQL.AdicionarParametros("@vchProtocolo", ticket.protocolo);
+                    string strSQL = "delete from tickets where id = @vchProtocolo; select @vchProtocolo;";
                     objRetorno = AcessoDadosMySQL.ExecutarManipulacao(CommandType.Text, strSQL);
                 }
                 int intResultado = 0;
@@ -146,42 +155,6 @@ namespace Projeto.ConnectionBD
                 return false;
             }
         }
-        */
-        /*public List<RelatarClass> verificaLogin(RelatarClass usuario)
-        {
-            List<RelatarClass> lista = new List<RelatarClass>();
-            try
-            {
-                AcessoDadosMySQL.LimparParametros();
-                DataTable objDataTable = null;
-
-                //Se quiser personalizar a busca 
-                AcessoDadosMySQL.AdicionarParametros("@vchLogin", usuario.login);
-                AcessoDadosMySQL.AdicionarParametros("@vchSenha", usuario.senha);
-
-                string strSQL = "select id, nome, login, funcionario from usuarios WHERE login = @vchLogin AND senha = @vchSenha";
-
-                objDataTable = AcessoDadosMySQL.ExecutaConsultar(System.Data.CommandType.Text, strSQL);
-                if (objDataTable.Rows.Count == 0)
-                {
-                    return lista;
-                }
-                foreach (DataRow objLinha in objDataTable.Rows)
-                {
-                    RelatarClass objNovoTicket = new RelatarClass();
-                    objNovoTicket.id = objLinha["id"] != DBNull.Value ? Convert.ToInt32(objLinha["id"]) : 0;
-                    objNovoTicket.nome = objLinha["nome"] != DBNull.Value ? Convert.ToString(objLinha["nome"]) : "";
-                    objNovoTicket.login = objLinha["login"] != DBNull.Value ? Convert.ToString(objLinha["login"]) : "";
-                    objNovoTicket.funcionario = objLinha["funcionario"] != DBNull.Value ? Convert.ToBoolean(objLinha["funcionario"]) : false;
-                    lista.Add(objNovoTicket);
-                }
-                return lista;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-                return lista;
-            }
-        }*/
+        
     }
 }
