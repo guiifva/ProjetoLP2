@@ -73,5 +73,10 @@ namespace ProjetoLP2.Forms
             telaDeTestes.Show();
 
         }
+
+        private void VerTicketsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

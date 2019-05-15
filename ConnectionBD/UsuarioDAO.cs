@@ -42,7 +42,7 @@ namespace ProjetoLP2.DAL
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Erro: {0}", ex.ToString());
+                MessageBox.Show("Erro: " + ex.ToString());
                 return false;
             }
 

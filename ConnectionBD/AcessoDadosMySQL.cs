@@ -64,6 +64,7 @@ namespace ProjetoLP2.DAL
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 throw new Exception(ex.Message);
             }
         }

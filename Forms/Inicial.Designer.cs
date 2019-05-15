@@ -34,6 +34,8 @@
             this.cadastroFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentarTestesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.novoTicketDeSuporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verMeusTicketsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +53,9 @@
             // 
             // helpdeskToolStripMenuItem
             // 
+            this.helpdeskToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.novoTicketDeSuporteToolStripMenuItem,
+            this.verMeusTicketsToolStripMenuItem});
             this.helpdeskToolStripMenuItem.Name = "helpdeskToolStripMenuItem";
             this.helpdeskToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.helpdeskToolStripMenuItem.Text = "Helpdesk";
@@ -74,6 +79,19 @@
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
+            // 
+            // novoTicketDeSuporteToolStripMenuItem
+            // 
+            this.novoTicketDeSuporteToolStripMenuItem.Name = "novoTicketDeSuporteToolStripMenuItem";
+            this.novoTicketDeSuporteToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.novoTicketDeSuporteToolStripMenuItem.Text = "Novo Ticket de Suporte";
+            // 
+            // verMeusTicketsToolStripMenuItem
+            // 
+            this.verMeusTicketsToolStripMenuItem.Name = "verMeusTicketsToolStripMenuItem";
+            this.verMeusTicketsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.verMeusTicketsToolStripMenuItem.Text = "Ver Tickets";
+            this.verMeusTicketsToolStripMenuItem.Click += new System.EventHandler(this.VerTicketsToolStripMenuItem_Click);
             // 
             // Inicial
             // 
@@ -100,5 +118,7 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroFuncionarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem documentarTestesToolStripMenuItem;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.ToolStripMenuItem novoTicketDeSuporteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verMeusTicketsToolStripMenuItem;
     }
 }
