@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.helpdeskToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.novoTicketDeSuporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verMeusTicketsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastroFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.documentarTestesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.novoTicketDeSuporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verMeusTicketsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +59,20 @@
             this.helpdeskToolStripMenuItem.Name = "helpdeskToolStripMenuItem";
             this.helpdeskToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.helpdeskToolStripMenuItem.Text = "Helpdesk";
-            this.helpdeskToolStripMenuItem.Click += new System.EventHandler(this.HelpdeskToolStripMenuItem_Click);
+            // 
+            // novoTicketDeSuporteToolStripMenuItem
+            // 
+            this.novoTicketDeSuporteToolStripMenuItem.Name = "novoTicketDeSuporteToolStripMenuItem";
+            this.novoTicketDeSuporteToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.novoTicketDeSuporteToolStripMenuItem.Text = "Novo Ticket de Suporte";
+            this.novoTicketDeSuporteToolStripMenuItem.Click += new System.EventHandler(this.NovoTicketDeSuporteToolStripMenuItem_Click);
+            // 
+            // verMeusTicketsToolStripMenuItem
+            // 
+            this.verMeusTicketsToolStripMenuItem.Name = "verMeusTicketsToolStripMenuItem";
+            this.verMeusTicketsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.verMeusTicketsToolStripMenuItem.Text = "Ver Tickets";
+            this.verMeusTicketsToolStripMenuItem.Click += new System.EventHandler(this.VerTicketsToolStripMenuItem_Click);
             // 
             // cadastroFuncionarioToolStripMenuItem
             // 
@@ -80,19 +93,6 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
-            // novoTicketDeSuporteToolStripMenuItem
-            // 
-            this.novoTicketDeSuporteToolStripMenuItem.Name = "novoTicketDeSuporteToolStripMenuItem";
-            this.novoTicketDeSuporteToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.novoTicketDeSuporteToolStripMenuItem.Text = "Novo Ticket de Suporte";
-            // 
-            // verMeusTicketsToolStripMenuItem
-            // 
-            this.verMeusTicketsToolStripMenuItem.Name = "verMeusTicketsToolStripMenuItem";
-            this.verMeusTicketsToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.verMeusTicketsToolStripMenuItem.Text = "Ver Tickets";
-            this.verMeusTicketsToolStripMenuItem.Click += new System.EventHandler(this.VerTicketsToolStripMenuItem_Click);
-            // 
             // Inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,6 +103,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Inicial";
             this.Text = "Inicial";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Inicial_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -55,7 +55,7 @@ namespace ProjetoLP2.DAL
             {
                 DataTable objDataTable = null;
                 //Se quiser personalizar a busca 
-                string strSQL = "select Id, nome from usuarios";
+                string strSQL = "select usuarioId, nome from usuarios";
 
                 objDataTable = AcessoDadosMySQL.ExecutaConsultar(System.Data.CommandType.Text, strSQL);
 
@@ -66,7 +66,7 @@ namespace ProjetoLP2.DAL
                 foreach (DataRow objLinha in objDataTable.Rows)
                 {
                     Usuario objNovoUsuario = new Usuario();
-                    objNovoUsuario.id = objLinha["id"] != DBNull.Value ? Convert.ToInt32(objLinha["id"]) : 0;
+                    objNovoUsuario.usuarioId = objLinha["usuarioId"] != DBNull.Value ? Convert.ToInt32(objLinha["usuarioId"]) : 0;
                     objNovoUsuario.nome = objLinha["nome"] != DBNull.Value ? Convert.ToString(objLinha["nome"]) : "";
                     objNovoUsuario.login = objLinha["login"] != DBNull.Value ? Convert.ToString(objLinha["login"]) : "";
                     objNovoUsuario.funcionario = objLinha["funcionario"] != DBNull.Value ? Convert.ToBoolean(objLinha["funcionario"]) : false;
@@ -89,12 +89,12 @@ namespace ProjetoLP2.DAL
                 object objRetorno = null;
                 if (usuario != null)
                 {
-                    AcessoDadosMySQL.AdicionarParametros("@intId", usuario.id);
+                    AcessoDadosMySQL.AdicionarParametros("@intUsuarioId", usuario.usuarioId);
                     AcessoDadosMySQL.AdicionarParametros("@vchNome", usuario.nome);
                     AcessoDadosMySQL.AdicionarParametros("@vchLogin", usuario.login);
                     AcessoDadosMySQL.AdicionarParametros("@vchSenha", usuario.senha);
 
-                    string strSQL = "update usuarios set nome = @vchNome, login = @vchLogin, senha = @vchSenha where Id = @intId;select @intId;";
+                    string strSQL = "update usuarios set nome = @vchNome, login = @vchLogin, senha = @vchSenha where Id = @intUsuarioId;select @intUsuarioId;";
                     objRetorno = AcessoDadosMySQL.ExecutarManipulacao(CommandType.Text, strSQL);
                 }
                 int intResultado = 0;
@@ -120,8 +120,8 @@ namespace ProjetoLP2.DAL
                 AcessoDadosMySQL.LimparParametros();
                 object objRetorno = null; if (usuario != null)
                 {
-                    AcessoDadosMySQL.AdicionarParametros("@intId", usuario.id);
-                    string strSQL = "delete from usuarios where id = @intId;select @intId;";
+                    AcessoDadosMySQL.AdicionarParametros("@intId", usuario.usuarioId);
+                    string strSQL = "delete from usuarios where id = @intId;select @intUsuarioId;";
                     objRetorno = AcessoDadosMySQL.ExecutarManipulacao(CommandType.Text, strSQL);
                 }
                 int intResultado = 0;
@@ -152,7 +152,7 @@ namespace ProjetoLP2.DAL
                 AcessoDadosMySQL.AdicionarParametros("@vchLogin", usuario.login);
                 AcessoDadosMySQL.AdicionarParametros("@vchSenha", usuario.senha);
 
-                string strSQL = "select id, nome, login, funcionario from usuarios WHERE login = @vchLogin AND senha = @vchSenha";
+                string strSQL = "select usuarioId, nome, login, funcionario from usuarios WHERE login = @vchLogin AND senha = @vchSenha";
 
                 objDataTable = AcessoDadosMySQL.ExecutaConsultar(System.Data.CommandType.Text, strSQL);
                 if (objDataTable.Rows.Count == 0)
@@ -162,7 +162,7 @@ namespace ProjetoLP2.DAL
                 foreach (DataRow objLinha in objDataTable.Rows)
                 {
                     Usuario objNovoUsuario = new Usuario();
-                    objNovoUsuario.id = objLinha["id"] != DBNull.Value ? Convert.ToInt32(objLinha["id"]) : 0;
+                    objNovoUsuario.usuarioId = objLinha["usuarioId"] != DBNull.Value ? Convert.ToInt32(objLinha["usuarioId"]) : 0;
                     objNovoUsuario.nome = objLinha["nome"] != DBNull.Value ? Convert.ToString(objLinha["nome"]) : "";
                     objNovoUsuario.login = objLinha["login"] != DBNull.Value ? Convert.ToString(objLinha["login"]) : "";
                     objNovoUsuario.funcionario = objLinha["funcionario"] != DBNull.Value ? Convert.ToBoolean(objLinha["funcionario"]) : false;

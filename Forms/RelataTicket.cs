@@ -41,7 +41,7 @@ namespace ProjetoLP2
             texts[3] = txb_Software.Text;
             texts[4] = txb_Prazo.Text;
             texts[5] = txb_Descricao.Text;
-            texts[6] = txb_Responsavel.Text;
+            texts[6] = txb_Setor.Text;
             texts[7] = txb_Erro.Text;
             for (int i = 0; i < texts.Length; i++)
             {
@@ -57,9 +57,42 @@ namespace ProjetoLP2
             if (verifica())
             {
                 var ticket = new Ticket();
-                ticket.usuario = (txb_Usuario.Text);
-                ticket.data = Convert.ToDateTime(txb_Date.Text);
 
+                ticket.usuario = usuarioLogado.nome;
+
+                var arrayData = txb_Date.Text.Split('/');
+                string data = (arrayData[2] + "-" + arrayData[1] + "-" + arrayData[0]);
+                ticket.data = data;
+
+                ticket.categoria = txb_Categoria.Text;
+                ticket.software = txb_Software.Text;
+
+                switch (txb_Prioridade.Text)
+                {
+                    case "Baixa": ticket.prioridade = 0;
+                        break;
+                    case "Média": ticket.prioridade = 1;
+                        break;
+                    case "Alta": ticket.prioridade = 2;
+                        break;
+                    default: ticket.prioridade = 0;
+                        break;
+                }
+
+                ticket.descricao = txb_Descricao.Text;
+                ticket.setor = txb_Setor.Text;
+                ticket.msgErro = txb_Erro.Text;
+
+                var ticketDAO = new RelatarDAO();
+                try
+                {
+                    ticketDAO.create(ticket);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                
             }
             else
             {
@@ -76,8 +109,15 @@ namespace ProjetoLP2
         private void RelatarTicket_Load(object sender, EventArgs e)
         {
             txb_Usuario.Text = usuarioLogado.nome;
-            var date = Convert.ToDateTime(txb_Date.Text);
-            MessageBox.Show(Convert.ToString(date));
+
+          
+            
+
+        }
+
+        private void Btn_Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

@@ -38,10 +38,8 @@ namespace ProjetoLP2.Forms
 
         }
 
-        private void HelpdeskToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
-            if (usuarioLogado.funcionario)
+            /*if (usuarioLogado.funcionario)
             {
                 HelpdeskFuncionario telaHelpdeskFuncionario = new HelpdeskFuncionario();
                 telaHelpdeskFuncionario.MdiParent = this;
@@ -53,11 +51,11 @@ namespace ProjetoLP2.Forms
                 HelpdeskCliente telaHelpdeskCliente = new HelpdeskCliente();
                 telaHelpdeskCliente.MdiParent = this;
                 telaHelpdeskCliente.Show();
-            }
+            }*/
             
 
 
-        }
+        
 
         private void CadastroFuncionarioToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -77,6 +75,13 @@ namespace ProjetoLP2.Forms
         private void VerTicketsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void NovoTicketDeSuporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RelatarTicket telaDeTicket = new RelatarTicket(usuarioLogado);
+            telaDeTicket.MdiParent = this;
+            telaDeTicket.Show();
         }
     }
 }

@@ -10,13 +10,13 @@ namespace Projeto.Model
     {
         public int ticketId { get; set; }
         public string usuario { get; set; }
-        public DateTime data { get; set; }
+        public string data { get; set; }
         public string categoria { get; set; }
         public string software { get; set; }
-        public string prioridade { get; set; }
+        public int prioridade { get; set; } // 0 - Baixa 1 - media 2 - alta
         public string descricao { get; set; }
-        public string responsavel { get; set; }
+        public string setor { get; set; }
         public string msgErro { get; set; }
-
+        public int status { get; set; } // 0 - em andamento / 1 - concluido
     }
 }

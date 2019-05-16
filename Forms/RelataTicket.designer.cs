@@ -41,8 +41,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txb_Categoria = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txb_Responsavel = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.txb_Setor = new System.Windows.Forms.ComboBox();
+            this.txb_Prioridade = new System.Windows.Forms.Label();
             this.txb_Prazo = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txb_Erro = new System.Windows.Forms.RichTextBox();
@@ -137,6 +137,7 @@
             this.btn_Cancelar.TabIndex = 13;
             this.btn_Cancelar.Text = "Cancelar";
             this.btn_Cancelar.UseVisualStyleBackColor = true;
+            this.btn_Cancelar.Click += new System.EventHandler(this.Btn_Cancelar_Click);
             // 
             // label6
             // 
@@ -169,31 +170,34 @@
             this.label7.Location = new System.Drawing.Point(13, 298);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(105, 23);
+            this.label7.Size = new System.Drawing.Size(50, 23);
             this.label7.TabIndex = 17;
-            this.label7.Text = "Responsavel:";
+            this.label7.Text = "Setor:";
             // 
-            // txb_Responsavel
+            // txb_Setor
             // 
-            this.txb_Responsavel.FormattingEnabled = true;
-            this.txb_Responsavel.Items.AddRange(new object[] {
+            this.txb_Setor.FormattingEnabled = true;
+            this.txb_Setor.Items.AddRange(new object[] {
             "T.I.",
-            "Administração"});
-            this.txb_Responsavel.Location = new System.Drawing.Point(12, 325);
-            this.txb_Responsavel.Name = "txb_Responsavel";
-            this.txb_Responsavel.Size = new System.Drawing.Size(397, 31);
-            this.txb_Responsavel.TabIndex = 18;
+            "Administração",
+            "RH",
+            "Logistica",
+            "Financeiro"});
+            this.txb_Setor.Location = new System.Drawing.Point(12, 325);
+            this.txb_Setor.Name = "txb_Setor";
+            this.txb_Setor.Size = new System.Drawing.Size(397, 31);
+            this.txb_Setor.TabIndex = 18;
             // 
-            // label9
+            // txb_Prioridade
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(841, 111);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 23);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Prazo:";
+            this.txb_Prioridade.AutoSize = true;
+            this.txb_Prioridade.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_Prioridade.Location = new System.Drawing.Point(841, 111);
+            this.txb_Prioridade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txb_Prioridade.Name = "txb_Prioridade";
+            this.txb_Prioridade.Size = new System.Drawing.Size(85, 23);
+            this.txb_Prioridade.TabIndex = 20;
+            this.txb_Prioridade.Text = "Prioridade:";
             // 
             // txb_Prazo
             // 
@@ -201,7 +205,7 @@
             this.txb_Prazo.Items.AddRange(new object[] {
             "Baixa",
             "Média",
-            "Urgente"});
+            "Alta"});
             this.txb_Prazo.Location = new System.Drawing.Point(841, 135);
             this.txb_Prazo.Name = "txb_Prazo";
             this.txb_Prazo.Size = new System.Drawing.Size(272, 31);
@@ -257,8 +261,8 @@
             this.Controls.Add(this.txb_Erro);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txb_Prazo);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txb_Responsavel);
+            this.Controls.Add(this.txb_Prioridade);
+            this.Controls.Add(this.txb_Setor);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txb_Categoria);
             this.Controls.Add(this.label6);
@@ -297,8 +301,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox txb_Categoria;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox txb_Responsavel;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox txb_Setor;
+        private System.Windows.Forms.Label txb_Prioridade;
         private System.Windows.Forms.ComboBox txb_Prazo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.RichTextBox txb_Erro;
