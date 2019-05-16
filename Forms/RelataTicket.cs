@@ -58,7 +58,7 @@ namespace ProjetoLP2
             {
                 var ticket = new Ticket();
 
-                ticket.usuario = usuarioLogado.nome;
+                ticket.usuario = usuarioLogado.usuarioId;
 
                 var arrayData = txb_Date.Text.Split('/');
                 string data = (arrayData[2] + "-" + arrayData[1] + "-" + arrayData[0]);

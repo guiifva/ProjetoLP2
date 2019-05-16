@@ -9,7 +9,7 @@ namespace Projeto.Model
     class Ticket
     {
         public int ticketId { get; set; }
-        public string usuario { get; set; }
+        public int usuario { get; set; }
         public string data { get; set; }
         public string categoria { get; set; }
         public string software { get; set; }

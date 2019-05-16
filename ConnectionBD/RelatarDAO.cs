@@ -22,7 +22,7 @@ namespace Projeto.ConnectionBD
                 if (relatar != null)
                 {
 
-                    AcessoDadosMySQL.AdicionarParametros("@vchUsuario", relatar.usuario);
+                    AcessoDadosMySQL.AdicionarParametros("@intUsuario", relatar.usuario);
                     AcessoDadosMySQL.AdicionarParametros("@dteData", relatar.data);
                     AcessoDadosMySQL.AdicionarParametros("@vchCategoria", relatar.categoria);
                     AcessoDadosMySQL.AdicionarParametros("@vchSoftware", relatar.software);
@@ -32,7 +32,7 @@ namespace Projeto.ConnectionBD
                     AcessoDadosMySQL.AdicionarParametros("@vchMsgErro", relatar.msgErro);
                     AcessoDadosMySQL.AdicionarParametros("@blnStatus", relatar.status);
 
-                    string strSQL = "INSERT INTO ticket(usuario, data, categoria, software, prioridade, descricao, responsavel, msgErro) VALUES (@vchUsuario, @dteData, @vchCategoria, @vchSoftware, @intPrioridade, @vchDescricao, @vchResponsavel, @vchMsgErro); SELECT LAST_INSERT_ID();";
+                    string strSQL = "INSERT INTO ticket(usuario, data, categoria, software, prioridade, descricao, responsavel, msgErro) VALUES (@vchUsuario, @dteData, @vchCategoria, @vchSoftware, @intPrioridade, @vchDescricao, @vchResponsavel, @vchMsgErro); INSERT INTO relatam ticket_id = VALUES LAST_INSERT_ID(), usuario_id = @intUsuario;";
                     objRetorno = AcessoDadosMySQL.ExecutarManipulacao(CommandType.Text, strSQL);
                 }
                 int intResultado = 0;
@@ -72,7 +72,7 @@ namespace Projeto.ConnectionBD
                 {
                     Ticket objNovoTicket = new Ticket();
                     objNovoTicket.ticketId = objLinha["ticketId"] != DBNull.Value ? Convert.ToInt32(objLinha["ticketId"]) : 0;
-                    objNovoTicket.usuario = objLinha["usuario"] != DBNull.Value ? Convert.ToString(objLinha["usuario"]) : "";
+                    objNovoTicket.usuario = objLinha["usuario"] != DBNull.Value ? Convert.ToInt32(objLinha["usuario"]) : 0;
                     objNovoTicket.data = objLinha["data"] != DBNull.Value ? Convert.ToString(objLinha["data"]) : "2015-01-01";
                     objNovoTicket.categoria = objLinha["categoria"] != DBNull.Value ? Convert.ToString(objLinha["categoria"]) : "";
                     objNovoTicket.software = objLinha["software"] != DBNull.Value ? Convert.ToString(objLinha["software"]) : "";
